@@ -10,6 +10,33 @@
     },
     {
         "id": "2",
+        "name": "Hot Toys Captain America",
+        "price": "190.00",
+        "currency": "USD",
+        "brand": "Hot Toys",
+        "category": "Action Figures",
+        "image": "ca.png"
+    },
+    {
+        "id": "3",
+        "name": "Hot Toys Hulk",
+        "price": "289.00",
+        "currency": "USD",
+        "brand": "Hot Toys",
+        "category": "Action Figures",
+        "image": "hulk.png"
+    },
+    {
+        "id": "4",
+        "name": "Hot Toys Thanos",
+        "price": "489.00",
+        "currency": "USD",
+        "brand": "Hot Toys",
+        "category": "Action Figures",
+        "image": "thanos.png"
+    },
+    {
+        "id": "5",
         "name": "Barbie Doll",
         "price": "200.00",
         "currency": "USD",
