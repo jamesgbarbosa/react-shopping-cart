@@ -5,18 +5,20 @@ export default function Shop() {
         {
             id: "1",
             name: 'Hot Toys Iron Man Mark 4',
-            price: 500,
+            price: "500.00",
             currency: 'USD',
             brand: "Hot Toys",
-            category: "Action Figures"
+            category: "Action Figures",
+            image: "ironman4.png"
         },
         {
             id: "2",
             name: 'Barbie Doll',
-            price: 200,
+            price: "200.00",
             currency: 'USD',
             brand: "Barbie",
-            category: "Action Figures"
+            category: "Action Figures",
+            image: "barbie.png"
         },
     ]
 

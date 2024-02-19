@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #E8E8EB;
+  font-family: "Rubik", sans-serif;
+}
+
 #header {
   width: 100%;
   height: 10rem;
@@ -34,16 +43,35 @@ button {
   /* height: 100vh; */
   display: flex;
   flex-wrap: wrap;
-  margin: 4rem;
-  border: 1px solid #1F1B26;
+  margin: 1rem 4rem;
+  /* border: 3px solid #1F1B26; */
 
 }
 
 .shop-item {
-  height: 20rem;
+  height: 30rem;
   width: 20rem;
   padding: 1rem;
   margin: 1rem;
   border-radius: 10px;
   background-color: #0000000d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shop-item-image {
+  height: 18rem;
+  width: 18rem;
+  object-fit: contain;
+}
+
+.shop-item-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  /* height: 0.5rem; */
+}
+
+.price {
+  font-size: 1.4rem;
 }
