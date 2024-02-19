@@ -23,7 +23,7 @@ export default function Shop() {
         {isLoading ? "Loading..." : <>
             {
                 shopItems.map(it =>
-                    <ShopItem key={it.id} details={it} />)
+                    <ShopItem key={it.id} itemDetails={it} />)
             }
         </>}
     </div>
