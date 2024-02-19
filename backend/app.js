@@ -16,6 +16,16 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/items', async (req, res) => {
+    const fileContent = await fs.readFile('./data/items.json');
+
+    const items = JSON.parse(fileContent);
+    setTimeout(() => {
+        res.status(200).json({ items: items });
+    }, 1000)
+});
+
+
 app.listen(3000, 'localhost', () => {
     console.log("Server running in port: ", 3000)
 })

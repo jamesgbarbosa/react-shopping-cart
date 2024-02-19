@@ -1,30 +1,30 @@
+import { useEffect, useState } from "react";
 import ShopItem from "./ShopItem"
 
 export default function Shop() {
-    let toys = [
-        {
-            id: "1",
-            name: 'Hot Toys Iron Man Mark 4',
-            price: "500.00",
-            currency: 'USD',
-            brand: "Hot Toys",
-            category: "Action Figures",
-            image: "ironman4.png"
-        },
-        {
-            id: "2",
-            name: 'Barbie Doll',
-            price: "200.00",
-            currency: 'USD',
-            brand: "Barbie",
-            category: "Action Figures",
-            image: "barbie.png"
-        },
-    ]
+    const [shopItems, setShopItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(false)
+
+
+    useEffect(() => {
+        async function getItems() {
+            setIsLoading(prev => true)
+            let items = await fetch('http://localhost:3000/items')
+            let itemJson = await items.json()
+            setIsLoading(prev => false)
+
+            setShopItems(prev => [...itemJson.items])
+        }
+
+        getItems();
+    }, [])
 
     return <div className="shop-container">
-        {toys.map(it =>
-            <ShopItem key={it.id} details={it} />)
-        }
+        {isLoading ? "Loading..." : <>
+            {
+                shopItems.map(it =>
+                    <ShopItem key={it.id} details={it} />)
+            }
+        </>}
     </div>
 }
