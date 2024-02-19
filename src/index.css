@@ -31,7 +31,19 @@ button {
 }
 
 .shop-container {
-  padding: 2rem;
+  /* height: 100vh; */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 4rem;
   border: 1px solid #1F1B26;
 
+}
+
+.shop-item {
+  height: 20rem;
+  width: 20rem;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  background-color: #0000000d;
 }
