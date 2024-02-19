@@ -19,12 +19,14 @@ export default function Shop() {
         getItems();
     }, [])
 
-    return <div className="shop-container">
-        {isLoading ? "Loading..." : <>
-            {
-                shopItems.map(it =>
-                    <ShopItem key={it.id} itemDetails={it} />)
-            }
-        </>}
+    return <div className="center">
+        <div className="shop-container">
+            {isLoading ? "Loading..." : <>
+                {
+                    shopItems.map(it =>
+                        <ShopItem key={it.id} itemDetails={it} />)
+                }
+            </>}
+        </div>
     </div>
 }
