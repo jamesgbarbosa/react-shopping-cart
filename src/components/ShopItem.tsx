@@ -7,13 +7,16 @@ export default function ShopItem({ itemDetails }) {
     return <div className="shop-item">
         <section>
             <img className="shop-item-image" src={`http://localhost:3000/${itemDetails.image}`} />
-            <p className="shop-item-title">
+            <div className="shop-item-title">
                 {itemDetails.name}
-            </p>
+            </div>
+
+        </section>
+        <div className="flex-space-between">
             <div>
                 <label>{itemDetails.currency} <span className="price">{itemDetails.price}</span></label>
             </div>
-        </section>
-        <button onClick={() => cartContext.addItem(itemDetails)}>Add to cart</button>
+            <button className="add-to-cart" onClick={() => cartContext.addItem(itemDetails)}>Add to cart</button>
+        </div>
     </div>
 }

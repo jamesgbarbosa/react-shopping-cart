@@ -7,25 +7,26 @@ const CartContext = createContext({
 });
 
 function cartReducer(state, action) {
-    const updatedItems = [...state.items]
+    const items = [...state.items]
 
     if (action.type == 'ADD_ITEM') {
         let existingItemIndex = state.items.findIndex((it) => it.id == action.item.id)
 
         if (existingItemIndex > -1) {
             const existingItem = state.items[existingItemIndex]
+
             let updatedItem = {
                 ...existingItem,
                 quantity: existingItem.quantity + 1
             }
 
-            updatedItems[existingItemIndex] = updatedItem;
+            items[existingItemIndex] = updatedItem;
             
         } else {
-            updatedItems.push({...action.item, quantity: 1})
+            items.push({...action.item, quantity: 1})
         }
 
-        return {...state, items: updatedItems}
+        return {...state, items: items}
     }
 
     if (action.type == 'REMOVE_ITEM') {
@@ -34,16 +35,16 @@ function cartReducer(state, action) {
         let existingItem = state.items[existingItemIndex]
 
         if (existingItem.quantity === 1) {
-            updatedItems.splice(existingItemIndex, 1)
+            items.splice(existingItemIndex, 1)
 
         } else {
             let updatedItem = {...existingItem, quantity: existingItem.quantity - 1}
 
-            updatedItems[existingItemIndex] = updatedItem;
+            items[existingItemIndex] = updatedItem;
 
         }
 
-        return {...state, items: updatedItems}
+        return {...state, items: items}
         
 
     }
