@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react"
 import CartContext from "../store/CartContext"
+import UserContext from "../store/UserContext"
 
 export default function Header() {
     let cartContext = useContext(CartContext)
+    let userContext = useContext(UserContext)
+
     const [isBlink, setIsBlink] = useState(false)
-   
+
     const totalCount = cartContext.items.reduce((totalCount, item) => {
         return totalCount + item.quantity;
     }, 0)
@@ -15,14 +18,18 @@ export default function Header() {
             setIsBlink(false);
         }, 500)
     }, [totalCount])
-    
+
+    function handleShowCart() {
+        userContext.showCartDialog();
+    }
+
 
     return <div id="header">
         <div className="container">
             <div></div>
             <span className="title">React Toys Shop</span>
             <div className="cart-container">
-                <button className={`${isBlink ? 'blink' : ''} cart-btn`}>Cart ({totalCount})</button>
+                <button onClick={() => handleShowCart()} className={`${isBlink ? 'blink' : ''} cart-btn`}>Cart ({totalCount})</button>
             </div>
         </div>
     </div>
