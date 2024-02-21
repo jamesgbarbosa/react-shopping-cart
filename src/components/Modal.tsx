@@ -8,6 +8,8 @@ export default function Modal({isOpen, onClose, children}) {
         if (isOpen) {
             dialog.current.showModal();
         }
+
+        return () => dialog.current.close();
     },[isOpen])
 
     return createPortal(<dialog onClose={onClose} ref={dialog}>
