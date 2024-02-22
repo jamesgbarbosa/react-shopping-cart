@@ -17,10 +17,12 @@ export default function Header() {
     }, 0)
 
     useEffect(() => {
-        setIsBlink(true)
-        setTimeout(() => {
-            setIsBlink(false);
-        }, 500)
+        if (totalCount > 0) {
+            setIsBlink(true)
+            setTimeout(() => {
+                setIsBlink(false);
+            }, 500)
+        }
     }, [totalCount])
 
     function handleShowCart() {
@@ -33,9 +35,9 @@ export default function Header() {
         <div className="container">
             <div></div>
             <span className="title">React Toys Shop</span>
-            <div className="cart-container">
+            {/* <div className="cart-container"> */}
                 <button onClick={() => handleShowCart()} className={`${isBlink ? 'blink' : ''} cart-btn`}>Cart ({totalCount})</button>
-            </div>
+            {/* </div> */}
         </div>
     </div>
 }

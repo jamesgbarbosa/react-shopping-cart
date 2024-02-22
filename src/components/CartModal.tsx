@@ -38,8 +38,8 @@ export default function CartModal() {
                     <div>USD {totalAmount}</div>
                 </div>
                 <div className="cart-modal-buttons-container">
-                    <button onClick={() => onHandleClose()}>Close</button>
-                    <button>Checkout</button>
+                    <button className="cart-modal-button" onClick={() => onHandleClose()}>Close</button>
+                    <button className="cart-modal-button checkout">Checkout</button>
                 </div>
 
             </div>

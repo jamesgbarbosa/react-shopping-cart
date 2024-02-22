@@ -7,7 +7,7 @@ export default function ShopItem({ itemDetails }) {
     // const [itemDetails, setItemDetails] = useState(details)
     // let cartContext = useContext(CartContext)
     const dispatch = useDispatch();
-    
+
     function handleAddItem(item) {
         dispatch(cartActions.addItem({item}))
     }
@@ -18,9 +18,8 @@ export default function ShopItem({ itemDetails }) {
             <div className="shop-item-title">
                 {itemDetails.name}
             </div>
-
         </section>
-        <div className="flex-space-between">
+        <div className="shop-item-desc flex-space-between">
             <div>
                 <label>{itemDetails.currency} <span className="price">{itemDetails.price}</span></label>
             </div>
