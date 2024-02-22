@@ -22,27 +22,52 @@ export default function CartModal() {
         dispatch(cartModalActions.hideCartDialog())
     }
 
-    return createPortal(<Modal onClose={onHandleClose} isOpen={cartModalSelector.progress === 'cart'}>
-        <div className="cart-modal">
+    let cartBreakdown = <>
+        <section className="cart-breakdown">
+            <ul className="items-list">
+                <div className="flex-space-between">
+                    <span className="items-list-header">Item</span>
+                    <span className="items-list-header">Quantity</span>
+                </div>
+            </ul>
             <ul className="items-list">
                 {cartItemSelector.map(it => <li key={it.id}>
                     <div className="flex-space-between">
-                        <span>{it.name}</span>
+                        <span className="items-list-name">{it.name}</span>
                         <span>{it.quantity}</span>
                     </div>
                 </li>)}
             </ul>
-            <div className="cart-footer">
-                <div className="flex-space-between">
-                    <div></div>
-                    <div>USD {totalAmount}</div>
-                </div>
-                <div className="cart-modal-buttons-container">
-                    <button className="cart-modal-button" onClick={() => onHandleClose()}>Close</button>
-                    <button className="cart-modal-button checkout">Checkout</button>
-                </div>
-
+        </section>
+        <div className="cart-footer">
+            <hr></hr>
+            <div className="flex-space-between">
+                <div></div>
+                <div>USD {totalAmount}</div>
             </div>
+            <div className="cart-modal-buttons-container">
+                <button className="cart-modal-button" onClick={() => onHandleClose()}>Close</button>
+                <button className="cart-modal-button checkout">Checkout</button>
+            </div>
+        </div>
+    </>
+
+    return createPortal(<Modal onClose={onHandleClose} isOpen={cartModalSelector.progress === 'cart'}>
+        <h3>Shopping Cart</h3>
+
+        <div className="cart-modal">
+            {cartItemSelector?.length == 0 ?
+                <>
+                    <div className="center">
+                        Cart is empty
+                    </div>
+                    <div className="cart-footer">
+                        <div className="cart-modal-buttons-container">
+                            <button className="cart-modal-button" onClick={() => onHandleClose()}>Close</button>
+                        </div>
+                    </div>
+                </>
+                : cartBreakdown}
         </div>
     </Modal>, document.getElementById('modal'))
 }
