@@ -1,66 +1,66 @@
 [
     {
         "id": "6",
-        "name": "Hot Toys Iron Man Mark I",
+        "name": "Hot Toys Iron Man Mark I Diecast 1/6 Scale Action Figure",
         "price": "190.00",
         "currency": "USD",
         "brand": "Hot Toys",
         "category": "Action Figures",
-        "image": "ironman1.png"
+        "image": ["ironman1.png", "ironman1a.png"]
     },
     {
         "id": "7",
-        "name": "Hot Toys Iron Man Mark VI",
+        "name": "Hot Toys Iron Man Mark VI Diecast 1/6 Scale Action Figure",
         "price": "470.00",
         "currency": "USD",
         "brand": "Hot Toys",
         "category": "Action Figures",
-        "image": "ironman6.png"
+        "image": ["ironman6.png","ironman6a.png"]
     },
     {
         "id": "8",
-        "name": "Hot Toys Iron Man Mark LXXXV",
+        "name": "Hot Toys Iron Man Mark LXXXV Diecast 1/6 Scale Action Figure",
         "price": "890.00",
         "currency": "USD",
         "brand": "Hot Toys",
         "category": "Action Figures",
-        "image": "ironman85.png"
+        "image": ["ironman85.png","ironman6.png"]
     },
     {
         "id": "1",
-        "name": "Hot Toys Iron Man Mark 4",
+        "name": "Hot Toys Iron Man Mark 4 Diecast 1/6 Scale Action Figure",
         "price": "500.00",
         "currency": "USD",
         "brand": "Hot Toys",
         "category": "Action Figures",
-        "image": "ironman4.png"
+        "image": ["ironman4.png","ironman6.png"]
     },
     {
         "id": "2",
-        "name": "Hot Toys Captain America",
+        "name": "Hot Toys Captain America 1/6 Scale Action Figure",
         "price": "190.00",
         "currency": "USD",
         "brand": "Hot Toys",
         "category": "Action Figures",
-        "image": "ca.png"
+        "image": ["ca.png", "ironman6.png"]
     },
     {
         "id": "3",
-        "name": "Hot Toys Hulk",
+        "name": "Hot Toys Hulk 1/6 Scale Action Figure",
         "price": "289.00",
         "currency": "USD",
         "brand": "Hot Toys",
         "category": "Action Figures",
-        "image": "hulk.png"
+        "image": ["hulk.png", "ironman6.png"]
     },
     {
         "id": "4",
-        "name": "Hot Toys Thanos",
+        "name": "Hot Toys Thanos 1/6 Scale Action Figure",
         "price": "489.00",
         "currency": "USD",
         "brand": "Hot Toys",
         "category": "Action Figures",
-        "image": "thanos.png"
+        "image": ["thanos.png", "ironman6.png"]
     },
     {
         "id": "5",
@@ -69,6 +69,6 @@
         "currency": "USD",
         "brand": "Barbie",
         "category": "Action Figures",
-        "image": "barbie.png"
+        "image": ["barbie.png"]
     }
 ]
