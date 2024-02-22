@@ -1,5 +1,32 @@
 [
     {
+        "id": "6",
+        "name": "Hot Toys Iron Man Mark I",
+        "price": "190.00",
+        "currency": "USD",
+        "brand": "Hot Toys",
+        "category": "Action Figures",
+        "image": "ironman1.png"
+    },
+    {
+        "id": "7",
+        "name": "Hot Toys Iron Man Mark VI",
+        "price": "470.00",
+        "currency": "USD",
+        "brand": "Hot Toys",
+        "category": "Action Figures",
+        "image": "ironman6.png"
+    },
+    {
+        "id": "8",
+        "name": "Hot Toys Iron Man Mark LXXXV",
+        "price": "890.00",
+        "currency": "USD",
+        "brand": "Hot Toys",
+        "category": "Action Figures",
+        "image": "ironman85.png"
+    },
+    {
         "id": "1",
         "name": "Hot Toys Iron Man Mark 4",
         "price": "500.00",
