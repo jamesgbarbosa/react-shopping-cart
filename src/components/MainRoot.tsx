@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
+import Header from "./Header/Header";
 import CartModal from "./CartModal";
 import CheckoutModal from "./CheckoutModal";
 import Notif from "./UI/Notif";

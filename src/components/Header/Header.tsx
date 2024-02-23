@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
-import toyLogo from "../assets/images/toy-logo.png";
+import toyLogo from "../../assets/images/toy-logo.png";
 // import CartContext from "../store/CartContext"
 // import UserContext from "../store/UserContext"
 import { useDispatch, useSelector } from "react-redux"
-import { cartModalActions } from "../store";
+import { cartModalActions } from "../../store";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
