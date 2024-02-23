@@ -26,7 +26,7 @@ const notifReducer = createSlice({
         closeNotifDisplay(state) {
             state.isOpen = false;
             state.message = '';
-            state.status = '';
+            // state.status = '';
         }
     }
 })

@@ -10,7 +10,7 @@ html {
 }
 
 #main-container {
-  padding-top: 13rem;
+  padding: 13rem 5rem 0rem 5rem;
 }
 
 body {
@@ -61,7 +61,6 @@ button {
   display: flex;
   flex-wrap: wrap;
   width: 76rem;
-  margin: 1rem 4rem;
   /* border: 3px solid #1F1B26; */
 
 }
@@ -138,6 +137,35 @@ button {
   width: 100%;
   justify-content: center;
   padding-top: 0.5rem;
+}
+
+.notification-hide {
+  animation: noti 0.5s ;
+}
+
+.notification-on-hide {
+  top: -3rem;
+  animation: notiBackward 1s ;
+}
+
+@keyframes noti {
+  0% {
+    top: -3rem;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes notiBackward {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: -3rem;
+  }
 }
 
 .success {
