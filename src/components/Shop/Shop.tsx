@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ShopItem from "./ShopItem"
 import { useDispatch } from "react-redux";
-import { notifActions } from "../store";
+import { notifActions } from "../../store";
 
 export default function Shop() {
     const [shopItems, setShopItems] = useState([]);

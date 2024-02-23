@@ -1,7 +1,7 @@
 // import { useContext } from "react"
 // import CartContext from "../store/CartContext"
 import { useDispatch } from "react-redux"
-import { cartActions } from "../store"
+import { cartActions } from "../../store"
 import { useState } from "react";
 
 export default function ShopItem({ itemDetails }) {

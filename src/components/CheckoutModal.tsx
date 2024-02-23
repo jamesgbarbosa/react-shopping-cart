@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions, cartModalActions, notifActions, submitCart } from "../store";
-import Modal from "./Modal";
+import Modal from "./UI/Modal";
 import { createPortal } from "react-dom";
 
 export default function CheckoutModal() {

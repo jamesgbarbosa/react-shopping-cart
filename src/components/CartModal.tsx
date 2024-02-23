@@ -1,5 +1,5 @@
 // import { useContext } from "react"
-import Modal from "./Modal"
+import Modal from "./UI/Modal"
 // import UserContext from "../store/UserContext"
 import { createPortal } from "react-dom"
 // import CartContext from "../store/CartContext"
