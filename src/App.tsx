@@ -6,22 +6,42 @@ import Shop from './components/Shop'
 import CheckoutModal from './components/CheckoutModal'
 import Notif from './components/Notif'
 import { useSelector } from 'react-redux'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import MainRoot from './components/MainRoot'
 // import { CartContextProvider } from './store/CartContext'
 // import { UserContextProvider } from './store/UserContext'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainRoot />,
+    children: [
+      {
+        index: true,
+        element: <Shop />
+      }
+    ]
+  },
+  {
+    path: "home",
+    element: <Shop />
+  }
+])
+
 function App() {
-  
-  const notifSelector = useSelector((state) => state.notif)
+
 
   return (
+    <RouterProvider router={router}></RouterProvider>
     // <UserContextProvider>
     //   <CartContextProvider>
-    <Fragment>
-      <Notif status={notifSelector.status} isHidden={!notifSelector.isOpen} message={notifSelector.message} />
-      <Header />
-      <Shop />
-      <CartModal />
-      <CheckoutModal />
-    </Fragment>
+    // <Fragment>
+    //   <Notif status={notifSelector.status} isHidden={!notifSelector.isOpen} message={notifSelector.message} />
+    //   <Header />
+    //   <Shop />
+    //   <CartModal />
+    //   <CheckoutModal />
+    // </Fragment>
     /* </ CartContextProvider> */
     // </UserContextProvider>
   )
