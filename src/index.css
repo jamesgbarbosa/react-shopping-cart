@@ -9,6 +9,10 @@ html {
   font-family: "Rubik", sans-serif;
 }
 
+#main-container {
+  padding-top: 13rem;
+}
+
 body {
   margin: 0;
 }
@@ -45,13 +49,37 @@ body {
   font-weight: 500;
 }
 
+#nav > ul {
+  list-style-type: none;
+  display: flex;
+}
+
+#nav > ul > li {
+  padding-right:  1rem;
+}
+
+#nav > ul > li > a.active {
+  color: #F2C14B;
+  font-weight: 400;
+}
+
+#nav > ul > li > a {
+  text-decoration: none;
+  color: white;
+}
+
+#nav > ul > li > a:hover {
+  color: #F2C14B;
+  
+}
+
 button {
   height: 2rem;
 }
 
 .cart-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .flex-space-between {
@@ -62,7 +90,6 @@ button {
 
 .shop-container {
   /* height: 100vh; */
-  padding-top: 13rem;
   display: flex;
   flex-wrap: wrap;
   width: 76rem;

@@ -4,6 +4,7 @@ import toyLogo from "../assets/images/toy-logo.png";
 // import UserContext from "../store/UserContext"
 import { useDispatch, useSelector } from "react-redux"
 import { cartModalActions } from "../store";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
     // let cartContext = useContext(CartContext)
@@ -37,11 +38,21 @@ export default function Header() {
             <div className="header-title-container">
                 <img className="header-title-image" src={toyLogo} />
                 <span className="header-title">React Toys Shop</span>
+
             </div>
-
-
         </div>
+
         <div className="cart-container">
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <NavLink className={(isActive) => { isActive ? 'active' : null}} to="/">Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="shop">Shop</NavLink>
+                    </li>
+                </ul>
+            </nav>
             <button onClick={() => handleShowCart()} className={`${isBlink ? 'blink' : ''} cart-btn`}>Cart ({totalCount})</button>
 
         </div>
