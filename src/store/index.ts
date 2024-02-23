@@ -51,6 +51,10 @@ const cartReducer = createSlice({
             }
 
             state.items = items;
+        },
+        clearCart(state) {
+            state.items = []
+            state.quantity = 0;
         }
     }
 })
@@ -67,7 +71,7 @@ const cartModalReducer = createSlice({
         },
         showCheckout(state) {
             state.progress = 'checkout'
-        }
+        },
     }
 })
 

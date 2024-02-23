@@ -140,6 +140,15 @@ button {
   justify-content: space-between;
 }
 
+.checkout-modal {
+  min-width: 25rem;
+  min-height: 20rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .cart-breakdown {
   overflow-y: auto;
 }

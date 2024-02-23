@@ -22,6 +22,11 @@ export default function CartModal() {
         dispatch(cartModalActions.hideCartDialog())
     }
 
+    function onHandleCheckout() {
+        dispatch(cartModalActions.hideCartDialog())
+        dispatch(cartModalActions.showCheckout())
+    }
+
     let cartBreakdown = <>
         <section className="cart-breakdown">
             <ul className="items-list">
@@ -47,12 +52,12 @@ export default function CartModal() {
             </div>
             <div className="cart-modal-buttons-container">
                 <button className="cart-modal-button" onClick={() => onHandleClose()}>Close</button>
-                <button className="cart-modal-button checkout">Checkout</button>
+                <button className="cart-modal-button checkout" onClick={() => onHandleCheckout()}>Checkout</button>
             </div>
         </div>
     </>
 
-    return createPortal(<Modal onClose={onHandleClose} isOpen={cartModalSelector.progress === 'cart'}>
+    return createPortal(<Modal onClose={() => {cartModalSelector.progress === 'cart' ? onHandleClose() : null}} isOpen={cartModalSelector.progress === 'cart'}>
         <h3>Shopping Cart</h3>
 
         <div className="cart-modal">
