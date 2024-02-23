@@ -5,6 +5,7 @@ import toyLogo from "../assets/images/toy-logo.png";
 import { useDispatch, useSelector } from "react-redux"
 import { cartModalActions } from "../store";
 import { Link, NavLink } from "react-router-dom";
+import styles from "./Header.module.css";
 
 export default function Header() {
     // let cartContext = useContext(CartContext)
@@ -33,11 +34,11 @@ export default function Header() {
     }
 
 
-    return <div id="header">
-        <div className="container">
-            <div className="header-title-container">
-                <img className="header-title-image" src={toyLogo} />
-                <span className="header-title">React Toys Shop</span>
+    return <div className={styles.header}>
+        <div className={styles.headerContainer}>
+            <div className={styles.headerTitleContainer}>
+                <img className={styles.headerTitleImage} src={toyLogo} />
+                <span className={styles.headerTitle}>React Toys Shop</span>
 
             </div>
         </div>
