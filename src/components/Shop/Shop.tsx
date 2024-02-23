@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import ShopItem from "./ShopItem"
 import { useDispatch } from "react-redux";
 import { notifActions } from "../../store";
+import { useLoaderData } from "react-router-dom";
 
 export default function Shop() {
     const [shopItems, setShopItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
+
+    // const shopItems = useLoaderData()
 
     useEffect(() => {
         async function getItems() {
@@ -20,12 +23,21 @@ export default function Shop() {
 
     return <div className="center">
         <div className="shop-container">
-            {isLoading ? "Loading..." : <>
-                {
-                    shopItems.map(it =>
-                        <ShopItem key={it.id} itemDetails={it} />)
-                }
-            </>}
+            {
+                isLoading ? <p>Loading Data...</p> :
+                    <>
+                        {
+                            shopItems.map(it =>
+                                <ShopItem key={it.id} itemDetails={it} />)
+                        }
+                    </>
+            }
         </div>
     </div>
+}
+
+export async function shopItemsLoader() {
+    let items = await fetch('http://localhost:3000/items')
+    let itemJson = await items.json()
+    return itemJson.items;
 }
