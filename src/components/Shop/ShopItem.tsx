@@ -3,6 +3,7 @@
 import { useDispatch } from "react-redux"
 import { cartActions } from "../../store"
 import { useState } from "react";
+import styles from "./ShopItem.module.css";
 
 export default function ShopItem({ itemDetails }) {
     // const [itemDetails, setItemDetails] = useState(details)
@@ -18,18 +19,18 @@ export default function ShopItem({ itemDetails }) {
         setCurrentImageIndex((prev) => itemDetails.image?.length > 1 ? 1: 0)
     }
 
-    return <div className="shop-item">
+    return <div className={styles.shopItem}>
         <section onMouseOver={() => updateImageIndex() } onMouseOut={() => setCurrentImageIndex((prev) => 0)}>
-            <img className="shop-item-image"  src={`http://localhost:3000/${itemDetails.image[currentImageIndex]}`}/>
-            <div className="shop-item-title">
+            <img className={styles.shopItemImage} src={`http://localhost:3000/${itemDetails.image[currentImageIndex]}`}/>
+            <div className={styles.shopItemTitle}>
                 {itemDetails.name}
             </div>
         </section>
-        <div className="shop-item-desc flex-space-between">
+        <div className={`${styles.shopItemDesc} flex-space-between`}>
             <div>
                 <label>{itemDetails.currency} <span className="price">{itemDetails.price}</span></label>
             </div>
-            <button className="add-to-cart" onClick={() => handleAddItem(itemDetails)}>Add to cart</button>
+            <button className={styles.addToCart} onClick={() => handleAddItem(itemDetails)}>Add to cart</button>
         </div>
     </div>
 }
