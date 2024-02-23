@@ -8,6 +8,29 @@ const cartModalInitialState = {
     progress: ''
 }
 
+const notifInitialState = {
+    status: '',
+    message: '',
+    isOpen: false
+}
+
+const notifReducer = createSlice({
+    name: 'notif',
+    initialState: notifInitialState,
+    reducers: {
+        openNotifDisplay(state,action) {
+            state.isOpen = true;
+            state.message = action.payload.message;
+            state.status = action.payload.status;
+        },
+        closeNotifDisplay(state) {
+            state.isOpen = false;
+            state.message = '';
+            state.status = '';
+        }
+    }
+})
+
 const cartReducer = createSlice({
     name: 'cart',
     initialState: cartInitialState,
@@ -76,10 +99,11 @@ const cartModalReducer = createSlice({
 })
 
 const store = configureStore({
-    reducer: {cart: cartReducer.reducer, cartModal: cartModalReducer.reducer}
+    reducer: {cart: cartReducer.reducer, cartModal: cartModalReducer.reducer, notif: notifReducer.reducer}
 })
 
 export const cartActions = cartReducer.actions;
 export const cartModalActions = cartModalReducer.actions;
+export const notifActions = notifReducer.actions;
 
 export default store;
