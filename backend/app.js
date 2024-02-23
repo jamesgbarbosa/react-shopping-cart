@@ -25,6 +25,13 @@ app.get('/items', async (req, res) => {
     }, 1000)
 });
 
+app.post('/submit', async (req, res) => {
+    console.log("Submitting...")
+    setTimeout(() => {
+        res.status(200).send({});
+    }, 2000)
+});
+
 
 app.listen(3000, 'localhost', () => {
     console.log("Server running in port: ", 3000)

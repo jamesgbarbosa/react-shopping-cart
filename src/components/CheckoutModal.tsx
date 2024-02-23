@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { cartActions, cartModalActions } from "../store";
+import { cartActions, cartModalActions, notifActions } from "../store";
 import Modal from "./Modal";
 import { createPortal } from "react-dom";
 
@@ -11,7 +11,31 @@ export default function CheckoutModal() {
         dispatch(cartModalActions.hideCartDialog())
     }
 
-    function onSubmit() {
+    function handleLoading() {
+        dispatch(notifActions.openNotifDisplay({ status: "warning", message: "Loading..." }))
+    }
+
+    function handleSuccess(message) {
+        dispatch(notifActions.openNotifDisplay({ status: "success", message: message }))
+    }
+
+    function handleCloseNotif() {
+        setTimeout(() => {
+            dispatch(notifActions.closeNotifDisplay())
+        }, 4000)
+    }
+
+    async function onSubmit() {
+        handleLoading();
+        const submit = async () => {
+            const submit = await fetch(`http://localhost:3000/submit`, {method: "POST"})
+            await submit.json();
+            handleSuccess("Successfuly submitted");
+            
+        }
+
+        await submit();
+        handleCloseNotif();
         dispatch(cartActions.clearCart())
         dispatch(cartModalActions.hideCartDialog())
     }
