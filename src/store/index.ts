@@ -98,6 +98,26 @@ const cartModalReducer = createSlice({
     }
 })
 
+export const submitCart = (cart) => {
+    return async (dispatch) => {
+        dispatch(notifActions.openNotifDisplay({ status: "warning", message: "Loading..." }))
+        dispatch(cartModalActions.hideCartDialog())
+
+        const response = await fetch(`http://localhost:3000/submit`, { method: "POST", body: JSON.stringify(cart)});
+
+        if (!response.ok) {
+            dispatch(notifActions.openNotifDisplay({ status: "error", message: "Error submitting" }))
+        } else {
+            dispatch(notifActions.openNotifDisplay({ status: "success", message: "Successfully Submitted!" }))
+            dispatch(cartActions.clearCart())
+        }
+
+        setTimeout(() => {
+            dispatch(notifActions.closeNotifDisplay())
+        }, 4000)
+    }
+}
+
 const store = configureStore({
     reducer: {cart: cartReducer.reducer, cartModal: cartModalReducer.reducer, notif: notifReducer.reducer}
 })
