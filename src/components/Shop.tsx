@@ -8,32 +8,20 @@ export default function Shop() {
     const [isLoading, setIsLoading] = useState(false)
     const dispatch = useDispatch();
 
-    function handleLoading() {
-        dispatch(notifActions.openNotifDisplay({status: "warning", message: "Loading..."}))
-    }
-
-    function handleSuccess() {
-        dispatch(notifActions.openNotifDisplay({status: "success", message: "Successfully loaded data"}))
-    }
-
-    function handleCloseNotif() {
-        setTimeout(() => {
-            dispatch(notifActions.closeNotifDisplay())
-        }, 4000)
-    }
-
     useEffect(() => {
         async function getItems() {
-            handleLoading();
+            dispatch(notifActions.openNotifDisplay({ status: "warning", message: "Loading..." }))
             setIsLoading(prev => true)
             let items = await fetch('http://localhost:3000/items')
             let itemJson = await items.json()
             setIsLoading(prev => false)
-            handleSuccess();
+            dispatch(notifActions.openNotifDisplay({ status: "success", message: "Successfully loaded data" }))
 
             setShopItems(prev => [...itemJson.items])
         }
-        handleCloseNotif();
+        setTimeout(() => {
+            dispatch(notifActions.closeNotifDisplay())
+        }, 4000)
         getItems();
     }, [])
 

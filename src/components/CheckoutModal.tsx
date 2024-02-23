@@ -11,38 +11,27 @@ export default function CheckoutModal() {
         dispatch(cartModalActions.hideCartDialog())
     }
 
-    function handleLoading() {
+    async function onSubmit() {
         dispatch(notifActions.openNotifDisplay({ status: "warning", message: "Loading..." }))
-    }
+        dispatch(cartModalActions.hideCartDialog())
 
-    function handleSuccess(message) {
-        dispatch(notifActions.openNotifDisplay({ status: "success", message: message }))
-    }
+        const response = await fetch(`http://localhost:3000/submit`, { method: "POST" });
 
-    function handleCloseNotif() {
+        if (!response.ok) {
+            dispatch(notifActions.openNotifDisplay({ status: "error", message: "Error submitting" }))
+        } else {
+            dispatch(notifActions.openNotifDisplay({ status: "success", message: "Successfully Submitted!" }))
+            dispatch(cartActions.clearCart())
+        }
+
         setTimeout(() => {
             dispatch(notifActions.closeNotifDisplay())
         }, 4000)
     }
 
-    async function onSubmit() {
-        handleLoading();
-        const submit = async () => {
-            const submit = await fetch(`http://localhost:3000/submit`, {method: "POST"})
-            await submit.json();
-            handleSuccess("Successfuly submitted");
-            
-        }
-
-        await submit();
-        handleCloseNotif();
-        dispatch(cartActions.clearCart())
-        dispatch(cartModalActions.hideCartDialog())
-    }
-
     return createPortal(<Modal onClose={onHandleClose} isOpen={cartModalSelector == 'checkout'}>
         <div className="checkout-modal">
-            <h3>Checkout</h3>   
+            <h3>Checkout</h3>
             <div className="cart-footer">
                 <div className="cart-modal-buttons-container">
                     <button className="cart-modal-button" onClick={() => onHandleClose()}>Close</button>
