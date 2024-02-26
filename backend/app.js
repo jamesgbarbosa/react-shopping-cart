@@ -25,8 +25,17 @@ app.get('/items', async (req, res) => {
     }, 1000)
 });
 
+app.get('/items/:id', async (req, res) => {
+    const fileContent = await fs.readFile('./data/items.json');
+
+    const items = JSON.parse(fileContent);
+    const item = items.find(it => it.id == req.params.id)
+    setTimeout(() => {
+        res.status(200).json(item);
+    }, 1000)
+});
+
 app.post('/submit', async (req, res) => {
-    console.log("Submitting...")
     setTimeout(() => {
         res.status(200).send({});
     }, 2000)
