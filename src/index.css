@@ -101,6 +101,10 @@ button {
   justify-content: space-between;
 }
 
+.form-control {
+  padding: 0.5rem 0rem;
+}
+
 .cart-breakdown {
   overflow-y: auto;
 }
