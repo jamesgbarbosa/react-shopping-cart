@@ -47,7 +47,7 @@ export default function Header() {
             <nav id="nav">
                 <ul>
                     <li>
-                        <NavLink className={(isActive) => { isActive ? 'active' : null}} to="/">Home</NavLink>
+                        <NavLink exact={true} to="/">Home</NavLink>
                     </li>
                     <li>
                         <NavLink to="shop">Shop</NavLink>
