@@ -1,10 +1,11 @@
 import './App.css'
-import Shop, { shopItemsLoader } from './components/Shop/Shop'
+import Shop, { loader as shopItemsLoader } from './components/Shop/Shop'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import MainRoot from './components/MainRoot'
 import Home from './components/Home'
 import ShopRoot from './components/Shop/ShopRoot'
-import ShopItemDetail from './components/Shop/ShopItemDetail'
+import ShopItemDetail, { loader as shopItemDetailLoader } from './components/Shop/ShopItemDetail'
+import ShopEditItemDetail from './components/Shop/ShopEditItemDetail'
 
 const router = createBrowserRouter([
   {
@@ -18,17 +19,19 @@ const router = createBrowserRouter([
       {
         path: 'shop',
         element: <ShopRoot />,
+        id: "shopItems",
+        loader: shopItemsLoader,
         children: [
-          // {
-          //   index: true,
-          //   element: <Shop />,
-          // },
           {
             path: ':id',
             element: <ShopItemDetail />,
-          }
+            loader: shopItemDetailLoader
+          },
+          {
+            path: ':id/edit',
+            element: <ShopEditItemDetail />,
+          },
         ]
-        // loader: shopItemsLoader
       }
     ]
   },
