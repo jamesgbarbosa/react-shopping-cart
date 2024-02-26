@@ -60,7 +60,7 @@ button {
   /* height: 100vh; */
   display: flex;
   flex-wrap: wrap;
-  width: 76rem;
+  /* width: 76rem; */
   /* border: 3px solid #1F1B26; */
 
 }
@@ -196,4 +196,12 @@ blink {
     transform: scale(1);
     background-color: #F3F4F3;
   }
+}
+
+.flex {
+  display: flex;
+}
+
+.shop-item-detail-section {
+  width: 40rem;
 }
