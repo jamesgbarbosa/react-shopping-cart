@@ -4,7 +4,7 @@ import Shop from "./Shop";
 export default function ShopRoot() {
     const param = useParams()
 
-    return <div className="flex">
+    return <div className="center">
         {
             param.id &&
 
