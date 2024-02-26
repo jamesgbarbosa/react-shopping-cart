@@ -4,6 +4,10 @@ const cartInitialState = {
     items: []
 }
 
+const shopItemsInitialState = {
+    items: []
+}
+
 const cartModalInitialState = {
     progress: ''
 }
@@ -96,10 +100,19 @@ const cartModalReducer = createSlice({
     }
 })
 
+const shopItemsReducer = createSlice({
+    name: 'shop',
+    initialState: shopItemsInitialState,
+    reducers: {
+        setItems(state, action) {
+            state.items = action.payload.items
+        }
+    }
+})
+
 export const submitCart = (cart) => {
     return async (dispatch) => {
         dispatch(notifActions.openNotifDisplay({ status: "warning", message: "Loading..." }))
-        dispatch(cartModalActions.hideCartDialog())
 
         const response = await fetch(`http://localhost:3000/submit`, { method: "POST", body: JSON.stringify(cart)});
 
@@ -113,15 +126,17 @@ export const submitCart = (cart) => {
         setTimeout(() => {
             dispatch(notifActions.closeNotifDisplay())
         }, 4000)
+        dispatch(cartModalActions.hideCartDialog())
     }
 }
 
 const store = configureStore({
-    reducer: {cart: cartReducer.reducer, cartModal: cartModalReducer.reducer, notif: notifReducer.reducer}
+    reducer: {cart: cartReducer.reducer, cartModal: cartModalReducer.reducer, notif: notifReducer.reducer, shop: shopItemsReducer.reducer}
 })
 
 export const cartActions = cartReducer.actions;
 export const cartModalActions = cartModalReducer.actions;
 export const notifActions = notifReducer.actions;
+export const shopItemActions = shopItemsReducer.actions;
 
 export default store;

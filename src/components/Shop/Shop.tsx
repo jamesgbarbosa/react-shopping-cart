@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import ShopItem from "./ShopItem"
 import { useDispatch } from "react-redux";
-import { notifActions } from "../../store";
+import { notifActions, shopItemActions } from "../../store";
 import { useLoaderData, useParams } from "react-router-dom";
 
 export default function Shop() {
     const [shopItems, setShopItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
     const param = useParams()
+    const dispatch = useDispatch();
 
     // const shopItems = useLoaderData()
 
@@ -17,6 +18,7 @@ export default function Shop() {
             let items = await fetch('http://localhost:3000/items')
             let itemJson = await items.json()
             setIsLoading(prev => false)
+            dispatch(shopItemActions.setItems({items : [...itemJson.items]}))
             setShopItems(prev => [...itemJson.items])
         }
         getItems();
