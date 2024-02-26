@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import ShopItem from "./ShopItem"
 import { useDispatch } from "react-redux";
 import { notifActions } from "../../store";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
 export default function Shop() {
     const [shopItems, setShopItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
+    const param = useParams()
 
     // const shopItems = useLoaderData()
 
@@ -21,8 +22,8 @@ export default function Shop() {
         getItems();
     }, [])
 
-    return <div className="center">
-        <div className="shop-container">
+    return <div className="flex-center">
+        <div className={`${param.id ? 'shop-container' : 'shop-container-expanded'}`}>
             {
                 isLoading ? <p>Loading Data...</p> :
                     <>

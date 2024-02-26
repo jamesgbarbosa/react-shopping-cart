@@ -4,6 +4,18 @@
   box-sizing: border-box;
 }
 
+a:link {
+  text-decoration: none;
+  color: inherit;
+  cursor: auto;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+  cursor: auto;
+}
+
 html {
   background-color: #E8E8EB;
   font-family: "Rubik", sans-serif;
@@ -60,9 +72,14 @@ button {
   /* height: 100vh; */
   display: flex;
   flex-wrap: wrap;
-  /* width: 76rem; */
+  width: 54rem;
   /* border: 3px solid #1F1B26; */
+}
 
+.shop-container-expanded {
+  display: flex;
+  flex-wrap: wrap;
+  width: 76rem;
 }
 
 .price {
