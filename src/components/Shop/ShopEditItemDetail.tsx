@@ -1,15 +1,25 @@
-import { useRouteLoaderData } from "react-router-dom"
+import { Suspense } from "react"
+import { Await, useRouteLoaderData } from "react-router-dom"
 
 export default function ShopEditItemDetail() {
-    const shop = useRouteLoaderData('shopItems')
+    const {shopItems} = useRouteLoaderData('shopItems')
 
-    return <div>
-        <h1>Test</h1>
-        {
-            shop.map(it =>
-                <p>{it.id}</p>
-            )
-        }
-    </div>
+    return <Suspense fallback={<p>Loading ...</p>}>
+        <Await resolve={shopItems}>
+            {(loadedShopItems) =>
+                <>
+                    <div>
+                        <h1>Detail</h1>
+                        {
+                            loadedShopItems.map(it =>
+                                <p>{it.id}</p>
+                            )
+                        }
+                    </div>
+                </>
+            }
+        </Await>
+    </Suspense>
+
 }
 

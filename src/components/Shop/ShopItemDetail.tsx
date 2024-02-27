@@ -1,25 +1,35 @@
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { Link, useLoaderData, useParams } from "react-router-dom"
+import { Suspense } from "react"
+import { Await, Link, defer, useLoaderData, useParams } from "react-router-dom"
 
 export default function ShopItemDetail() {
-    const item = useLoaderData()
+    const { shopItem } = useLoaderData()
 
-    return <div>
-        {item?.id}
-        <div>
-            Details goes here
-        </div>
-        <Link to="edit">
-            <label>Edit</label>
-        </Link>
-        {/* {item?.name} */}
-    </div>
+    return <Suspense fallback={<p>Loading detail...</p>}>
+        <Await resolve={shopItem}>
+            {loadedShopItem => <>
+                <div>
+                    {loadedShopItem?.id}
+                    <div>
+                        Details goes here
+                    </div>
+                    <Link to="edit">
+                        <label>Edit</label>
+                    </Link>
+                    {/* {item?.name} */}
+                </div>
+            </>}
+        </Await>
+    </Suspense>
 }
 
-
-export async function loader({params}) {
-    let res = await fetch('http://localhost:3000/items/' + params.id)
+async function shopItemLoader(id) {
+    let res = await fetch('http://localhost:3000/items/' + id)
     let data = await res.json();
     return data;
+}
+
+export function loader({ params }) {
+    return defer({
+        shopItem: shopItemLoader(params.id)
+    })
 }
